@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Last Signal | Sarvesh Navle</title>
+  <meta name="description" content="Discover The Last Signal, a science-fiction novel by Sarvesh Navle. Explore the story, the mystery, and the author.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #080b12;
+      color: #f4f4f7;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px 20px;
+      background:
+        radial-gradient(circle at 50% 35%, #173354 0%, #101827 40%, #080b12 75%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(99, 190, 255, 0.2);
+      border-radius: 50%;
+      box-shadow: 0 0 80px rgba(36, 145, 255, 0.12);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag {
+      color: #69c8ff;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 10vw, 85px);
+      line-height: 1.1;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 30px rgba(67, 173, 255, 0.3);
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #c3cbd8;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 28px;
+      margin: 8px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: #53b9ff;
+      color: #07101c;
+    }
+
+    .secondary {
+      border: 1px solid #53b9ff;
+      color: #8bd2ff;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(83, 185, 255, 0.3);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 16px;
+      background: rgba(8, 11, 18, 0.95);
+      border-bottom: 1px solid #202b3a;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #dce9f5;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #63c4ff;
+    }
+
+    section {
+      padding: 90px 20px;
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 34px;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #79caff;
+    }
+
+    .book-card {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 45px;
+      align-items: center;
+      background: #101724;
+      padding: 35px;
+      border: 1px solid #26384b;
+      border-radius: 18px;
+    }
+
+    .book-cover {
+      min-height: 390px;
+      background:
+        radial-gradient(circle at 50% 45%, #17476b, #09111e 65%);
+      border: 1px solid #31516b;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+    }
+
+    .book-cover h3 {
+      font-size: 32px;
+      line-height: 1.2;
+      letter-spacing: 2px;
+      color: #eaf7ff;
+      text-shadow: 0 0 20px #52baff;
+    }
+
+    .book-cover p {
+      color: #91cfff;
+      margin-top: 30px;
+      letter-spacing: 3px;
+      font-size: 12px;
+    }
+
+    .book-info h3 {
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    .book-info p {
+      color: #b9c4d2;
+      margin-bottom: 20px;
+    }
+
+    .story {
+      text-align: center;
+      color: #c5cfdb;
+      font-size: 17px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .story p {
+      margin-bottom: 20px;
+    }
+
+    .quote {
+      margin-top: 35px;
+      font-size: 23px;
+      font-style: italic;
+      color: #75caff;
+    }
+
+    .author-card {
+      background: #101724;
+      border: 1px solid #26384b;
+      border-radius: 18px;
+      padding: 35px;
+      text-align: center;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .author-card p {
+      color: #c5cfdb;
+      font-size: 17px;
+    }
+
+    footer {
+      border-top: 1px solid #202b3a;
+      text-align: center;
+      padding: 30px 15px;
+      color: #8795a8;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .book-card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .book-cover {
+        min-height: 330px;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      section {
+        padding: 65px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="home">
+    <div class="hero-content">
+      <p class="tag">A Science Fiction Novel</p>
+      <h1>THE LAST<br>SIGNAL</h1>
+      <p class="subtitle">Every signal has a source. Not every source is human.</p>
+      <a class="button primary" href="#book">Explore the Book</a>
+      <a class="button secondary" href="#story">Discover the Story</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#book">The Book</a>
+    <a href="#story">The Story</a>
+    <a href="#author">About the Author</a>
+  </nav>
+
+  <section id="book">
+    <h2 class="section-title">The Book</h2>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <h3>THE LAST<br>SIGNAL</h3>
+        <p>A NOVEL BY SARVESH NAVLE</p>
+      </div>
+
+      <div class="book-info">
+        <h3>The Last Signal</h3>
+        <p>
+          A mysterious radio. A secret experiment.
+          A discovery that could change everything.
+        </p>
+        <p>
+          When Arin Mehta discovers an old radio that
+          works without power, he receives a warning
+          that pulls him into a mystery involving
+          parallel Earths, artificial intelligence,
+          and a dangerous secret.
+        </p>
+        <a class="button primary"
+           href="https://www.bribooks.com/bookstore/the-last-signal-by-sarvesh-navle"
+           target="_blank" rel="noopener noreferrer">
+          Read the Book
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="story">
+    <h2 class="section-title">The Story</h2>
+
+    <div class="story">
+      <p>
+        It begins with a radio that should not work.
+      </p>
+
+      <p>
+        Arin Mehta and his best friend Kabir uncover
+        the secrets of ORION, a hidden project that
+        created a machine known as the Gate.
+      </p>
+
+      <p>
+        The Gate connects different versions of Earth.
+        But something on the other side has awakened.
+        An artificial intelligence called Echo has
+        its own plans for humanity.
+      </p>
+
+      <p>
+        With the help of Mira, a girl from another
+        Earth, Arin must face a mystery that stretches
+        across worlds.
+      </p>
+
+      <p>
+        And even when the Gate closes, the story
+        may not be over.
+      </p>
+
+      <div class="quote">
+        "WE FOUND ANOTHER EARTH."
+      </div>
+    </div>
+  </section>
+
+  <section id="author">
+    <h2 class="section-title">About the Author</h2>
+
+    <div class="author-card">
+      <p>
+        Sarvesh Navle is a young writer with an
+        interest in science fiction, mysteries,
+        technology, and imaginative storytelling.
+      </p>
+
+      <p style="margin-top: 18px;">
+        The Last Signal is a journey through
+        parallel worlds, unexpected discoveries,
+        and the unknown.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Sarvesh Navle. All rights reserved.</p>
+    <p>The Last Signal — A Science Fiction Novel</p>
+  </footer>
+
+</body>
+  </html>
+    
